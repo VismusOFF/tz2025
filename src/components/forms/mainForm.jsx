@@ -1,6 +1,6 @@
 import './mainForm.scss'
 import ArrowAbout from '../../assets/arrowAbout.svg'
-import SberIcon from '../../assets/SberIcon.svg'
+import SberIcon from '../../assets/sbericon.svg'
 import ButtonArrow from '../../assets/ButtonArrow.svg'
 import { useState } from 'react'
 
