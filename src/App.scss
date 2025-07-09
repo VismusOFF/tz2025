@@ -1,29 +1,28 @@
-$main-color: #F6F6F6;
-$second-color: #1F8B48;
+$main-color: #f6f6f6;
+$second-color: #1f8b48;
 
 body {
-  font-family: 'Gropled', sans-serif;
+  font-family: "Gropled", sans-serif;
   background-color: $main-color;
-  background-image: url('./assets/backgroundImage.svg');
+  background-image: url("./assets/backgroundImage.svg");
   h1 {
     color: white;
   }
 }
 
 @font-face {
-  font-family: 'Tilda Sans VF';
-  src: url('./fonts/TildaSans-VF_TTF_Web/TildaSans-VF.woff2') format('woff2');
+  font-family: "Tilda Sans VF";
+  src: url("./fonts/TildaSans-VF_TTF_Web/TildaSans-VF.woff2") format("woff2");
   font-weight: 100 900; /* вариативный диапазон веса */
   font-style: normal;
   font-display: swap;
 }
 
-
 .main-page-container {
-    margin-left: 120px;
-    margin-right: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin-left: 120px;
+  margin-right: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

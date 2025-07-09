@@ -1,35 +1,35 @@
 .navbar-container {
-    height: 68px;
-    width: 100%;
-    background-color: white;
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 68px;
+  width: 100%;
+  background-color: white;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-icon {
-    background-image: url('../../assets/logoIcon.svg');
-    width: 136px;
-    height: 38px;
-    background-size: cover;
-    margin-right: auto;
-    margin-left: 24px;
-    cursor: pointer;
+  background-image: url("../../assets/logoIcon.svg");
+  width: 136px;
+  height: 38px;
+  background-size: cover;
+  margin-right: auto;
+  margin-left: 24px;
+  cursor: pointer;
 }
 
 .navigation-buttons-containers {
-    margin-right: 4px;
-    height: 100%;
-    display: flex;
-    align-items: center;
+  margin-right: 4px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-container {
   button {
     background-color: white;
     border: none;
-    font-family: 'Tilda Sans VF', sans-serif;
+    font-family: "Tilda Sans VF", sans-serif;
     font-size: 16px;
     font-weight: 500;
     margin-left: 32px;
@@ -39,16 +39,15 @@
     border-radius: 40px;
     transition: 0.25s ease-in-out;
     color: black;
-    
+
     &:hover {
-      background-color: #1F8B48;
+      background-color: #1f8b48;
       color: white;
     }
   }
 
   .activeButton {
-    background-color: #1F8B48;
+    background-color: #1f8b48;
     color: white;
   }
 }
-

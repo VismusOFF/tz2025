@@ -1,0 +1,39 @@
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+  padding: 0 16px;
+  color: #131312;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Tilda Sans VF", sans-serif;
+}
+
+.footer-box {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-box:first-child {
+  gap: 32px;
+}
+
+.footer-box:first-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-box:last-child {
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.footer-box:last-child > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

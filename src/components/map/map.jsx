@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import LocationImage from '../../assets/locationIcon.svg';
+import React, { useEffect, useRef } from "react";
+import LocationImage from "../../assets/locationIcon.svg";
 
 const loadYandexScript = () => {
   return new Promise((resolve) => {
@@ -7,8 +7,8 @@ const loadYandexScript = () => {
       resolve();
       return;
     }
-    const script = document.createElement('script');
-    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+    const script = document.createElement("script");
+    script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
     script.async = true;
     script.onload = () => resolve();
     document.head.appendChild(script);
@@ -22,22 +22,27 @@ const MapComponent = () => {
   useEffect(() => {
     loadYandexScript().then(() => {
       window.ymaps.ready(() => {
-        if (mapInstance.current) return; // карта уже создана
+        if (mapInstance.current) return;
 
         mapInstance.current = new window.ymaps.Map(mapRef.current, {
-          center: [55.751574, 37.573856],
-          zoom: 14,
-          controls: ['zoomControl', 'fullscreenControl'],
+          center: [55.752023, 37.617499],
+          zoom: 16,
+          controls: ["zoomControl", "fullscreenControl"],
         });
 
         const placemark = new window.ymaps.Placemark(
-          [55.751574, 37.573856],
+          [55.752023, 37.617499],
           {
-            hintContent: 'Москва',
-            balloonContent: 'Здесь Москва',
+            hintContent: "Московский Кремль",
+            balloonContent: `
+              <div style="font-weight: 600; font-size: 16px;">
+                Московский Кремль
+              </div>
+              <div>Здесь находится главный комплекс исторических зданий Москвы.</div>
+            `,
           },
           {
-            iconLayout: 'default#image',
+            iconLayout: "default#image",
             iconImageHref: LocationImage,
             iconImageSize: [30, 42],
             iconImageOffset: [-15, -42],
@@ -59,7 +64,12 @@ const MapComponent = () => {
   return (
     <div
       ref={mapRef}
-      style={{ width: '100%', height: '100%', borderRadius: '24px' }}
+      style={{
+        width: "100%",
+        height: "100%",
+        borderRadius: "24px",
+        overflow: "hidden",
+      }}
     />
   );
 };

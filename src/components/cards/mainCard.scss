@@ -5,14 +5,9 @@
   display: flex;
 }
 
-.info-card-container {
-  width: 236px;
-  height: 100%;
-}
-
 .info-main-container {
-  width: 236px;
-  font-family: 'GropledBold', sans-serif;
+  width: 100%;
+  font-family: "GropledBold", sans-serif;
   font-weight: 700;
   font-size: 40px;
   display: flex;
@@ -21,19 +16,24 @@
 }
 
 .cards-list {
-  display: flex;
+  overflow: hidden;
+  height: 100%;
+  user-select: none;
   width: 100%;
-  justify-content: space-between;
-  transition: opacity 0.3s ease;
-  opacity: 1;
+  display: flex;
 }
 
-.cards-list.fade-in {
-  opacity: 1;
+.cards-wrapper {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease;
+  width: calc(300px * 4);
 }
 
-.cards-list.fade-out {
-  opacity: 0;
+.cards-wrapper > div {
+  box-sizing: border-box;
+  flex: 0 0 300px;
+  max-width: 300px;
 }
 
 .arrow-left-margin {
@@ -42,12 +42,12 @@
 
 .arrow-svg {
   .arrow-bg {
-    fill: #F6F6F6;
+    fill: #f6f6f6;
     transition: fill 0.3s ease;
   }
   .arrow-stroke1,
   .arrow-stroke2 {
-    stroke: #2E2D2B;
+    stroke: #2e2d2b;
     stroke-width: 2;
     transition: stroke 0.3s ease;
   }
@@ -55,10 +55,10 @@
 
 .arrow-button-container span:hover .arrow-svg {
   .arrow-bg {
-    fill: #1F8B48;
+    fill: #1f8b48;
   }
   .arrow-stroke1,
   .arrow-stroke2 {
-    stroke: #FFFFFF;
+    stroke: #ffffff;
   }
 }

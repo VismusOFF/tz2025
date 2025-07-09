@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  width: 300px; /* фиксированная ширина */
+  width: 300px;
   height: 450px;
   background-size: cover;
   background-position: center;
@@ -8,12 +8,11 @@
   border-radius: 16px;
   overflow: hidden;
   color: black;
-  font-family: 'Tilda Sans VF', sans-serif;
+  font-family: "Tilda Sans VF", sans-serif;
   transition: background-size 0.3s ease;
   cursor: pointer;
 }
 
-/* Градиент и текст изначально скрыты */
 .gradient-overlay,
 .card-text {
   position: absolute;
@@ -27,7 +26,6 @@
   z-index: 1;
 }
 
-/* Текст поверх градиента */
 .card-text {
   bottom: 32px;
   left: 32px;
@@ -38,23 +36,20 @@
   width: auto;
 }
 
-/* Градиент фон */
 .gradient-overlay {
-  background: linear-gradient(180deg, rgba(31, 139, 72, 0) 31.3%, #1F8B48 100%);
+  background: linear-gradient(180deg, rgba(31, 139, 72, 0) 31.3%, #1f8b48 100%);
 }
 
-/* При наведении на карточку показываем градиент и текст */
 .card:hover .gradient-overlay,
 .card:hover .card-text {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Стили для заголовка и описания */
 .card-title {
   font-size: 24px;
   font-weight: 700;
-  font-family: 'GropledBold', sans-serif;
+  font-family: "GropledBold", sans-serif;
   margin: 0 0 8px 0;
 }
 
@@ -62,5 +57,5 @@
   font-size: 16px;
   margin: 0;
   font-weight: 300;
-  font-family: 'Tilda Sans VF';
+  font-family: "Tilda Sans VF";
 }

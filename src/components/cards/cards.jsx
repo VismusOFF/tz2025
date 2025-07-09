@@ -1,11 +1,17 @@
-import React from 'react';
-import './cards.scss';
+import React from "react";
+import "./cards.scss";
 
-const Cards = ({ image, title, description, backgroundSize = '120%', isMain }) => {
+const Cards = ({
+  image,
+  title,
+  description,
+  backgroundSize = "120%",
+  isMain,
+}) => {
   return (
     <div
-      className={`card ${isMain ? 'main-card' : ''}`}
-      style={{ 
+      className={`card ${isMain ? "main-card" : ""}`}
+      style={{
         backgroundImage: `url(${image})`,
         backgroundSize: backgroundSize,
       }}
@@ -18,7 +24,5 @@ const Cards = ({ image, title, description, backgroundSize = '120%', isMain }) =
     </div>
   );
 };
-
-
 
 export default Cards;
