@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cards.scss';
+import './cards.scss';
 
 const Cards = ({ image, title, description, backgroundSize = '120%', isMain }) => {
   return (
