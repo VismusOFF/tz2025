@@ -1,0 +1,99 @@
+@media (max-width: 640px) {
+  .navbar-container {
+    width: 640px;
+    height: 68px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 10px;
+    box-sizing: border-box;
+  }
+
+  .logo-icon {
+    width: 136px;
+    height: 38px;
+    background-size: cover;
+    margin-left: 10px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    margin: 10px 16px 10px 0;
+    cursor: pointer;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .drawer-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .drawer-content {
+    background-color: #1f8b48;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    padding: 48px 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transform: translateX(100%);
+    animation: slideIn 0.3s ease-out forwards;
+
+    button.drawer-link {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      font-family: "Tilda Sans VF", sans-serif;
+      font-weight: 500;
+      margin-bottom: 24px;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .drawer-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      line-height: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}

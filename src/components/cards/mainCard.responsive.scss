@@ -1,4 +1,4 @@
-@media (max-width: 960px) {
+@media (max-width: 960px) and (min-width: 641px) {
   .card-main-container {
     height: 350px;
     font-size: 28px;
@@ -32,6 +32,64 @@
 
     .card-description {
       font-size: 16px;
+    }
+  }
+}
+
+// Mobile: ≤640px
+@media (max-width: 640px) {
+  .card-main-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0px;
+    width: 100%;
+    font-size: 24px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    height: 940px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .info-card-container {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 22px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .arrow-button-container {
+    display: none !important;
+  }
+
+  .cards-list {
+    height: 320px;
+  }
+
+  .cards-wrapper {
+    gap: 8px;
+    justify-content: flex-start;
+    transform: none !important;
+    transition: none !important;
+    flex-wrap: nowrap;
+    width: max-content;
+  }
+
+  .cards-wrapper > div {
+    flex: 0 0 250px;
+    max-width: 250px;
+    height: 320px !important;
+  }
+
+  .cards {
+    .card-title {
+      font-size: 18px;
+    }
+
+    .card-description {
+      font-size: 14px;
     }
   }
 }

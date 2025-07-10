@@ -1,0 +1,55 @@
+@media (max-width: 640px) {
+  .video-container {
+    width: 620px;
+    height: 311px;
+  }
+
+  .video-text-main-container {
+    width: 370px;
+    height: 263px;
+    margin: 24px;
+  }
+
+  .video-text-p {
+    font-size: 29px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .video-text-label {
+    font-size: 17px;
+    font-family: "Tilda Sans VF", sans-serif;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 20px;
+
+    div {
+      margin-bottom: 2px;
+    }
+  }
+
+  .video-button {
+    width: 302px;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 40px;
+    margin-bottom: 24px;
+  }
+
+  .arrow-image-button {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .sertificate-info {
+    font-size: 12px;
+    right: 24px;
+    bottom: 24px;
+    line-height: 1.2;
+    position: absolute;
+    text-align: right;
+    z-index: 1;
+  }
+}

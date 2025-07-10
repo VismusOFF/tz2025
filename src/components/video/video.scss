@@ -98,10 +98,33 @@
   }
 
   .video-text-main-container {
+    width: 600px;
+    height: auto;
+    margin: 48px;
     font-size: 18px;
   }
 
   .video-text-p {
     font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .video-text-label {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+
+    div {
+      margin-bottom: 4px;
+    }
+  }
+
+  .video-button {
+    margin-bottom: 32px;
+  }
+
+  .sertificate-info {
+    bottom: 32px;
+    right: 48px;
   }
 }

@@ -43,6 +43,7 @@ const MainCard = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState(null);
   const [dragging, setDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -50,6 +51,10 @@ const MainCard = () => {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const isMobile = windowWidth <= 640;
+  const isTablet = windowWidth > 640 && windowWidth <= 960;
+  const isDesktop = windowWidth > 960;
 
   const isSmallScreen = windowWidth <= 960;
 
@@ -84,7 +89,12 @@ const MainCard = () => {
   };
 
   const onDragMove = (e) => {
-    if (!dragging) return;
+    if (!dragging || dragStartX === null) return;
+
+    const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
+    const offset = clientX - dragStartX;
+    setDragOffset(offset);
+
     if (e.type === "touchmove") e.preventDefault();
   };
 
@@ -99,10 +109,11 @@ const MainCard = () => {
     else if (diffX < -DRAG_THRESHOLD) handleNext();
     setDragging(false);
     setDragStartX(null);
+    setDragOffset(0);
   };
 
   const slideStepPx = cardFixedWidthPx + gapPx;
-  const translateX = -startIndex * slideStepPx;
+  const translateX = -startIndex * slideStepPx + dragOffset;
 
   return (
     <div
@@ -110,11 +121,16 @@ const MainCard = () => {
       style={{
         marginTop: 96,
         width: leftPanelWidthPx + sliderWidthPx,
-        height: isSmallScreen ? 350 : 546,
+        height:
+          windowWidth <= 640
+            ? 400 // Для мобилок
+            : windowWidth <= 960
+            ? 350 // Для планшетов
+            : 546, // Для десктопа
         display: "flex",
         fontFamily: "GropledBold, sans-serif",
         fontWeight: 700,
-        fontSize: isSmallScreen ? 28 : 40,
+        fontSize: windowWidth <= 960 ? 28 : 40,
       }}
     >
       <div
@@ -123,23 +139,26 @@ const MainCard = () => {
           width: leftPanelWidthPx,
           display: "flex",
           flexDirection: "column",
-          height: isSmallScreen ? 350 : 450,
-          padding: 16,
+          height: isSmallScreen ? "auto" : 450,
+          padding: isSmallScreen ? 0 : 16,
           boxSizing: "border-box",
           position: "relative",
           zIndex: 10,
           color: "#000",
           textShadow: "0 0 4px rgba(255,255,255,0.7)",
+          margin: isSmallScreen ? 0 : undefined,
+          marginBottom: isSmallScreen ? 24 : undefined,
         }}
       >
         <div className="info-card-container">
-          {isSmallScreen
-            ? "Это — не\nсовсем то, что\n вы думаете"
-                .split("\n")
-                .map((line, i) => <div key={i}>{line}</div>)
-            : "Это — не совсем то, что вы думаете"}
+          {isMobile && "Это — не совсем то, что вы думаете"}
+          {isTablet &&
+            "Это — не\nсовсем то, что\n вы думаете"
+              .split("\n")
+              .map((line, i) => <div key={i}>{line}</div>)}
+          {isDesktop && "Это — не совсем то, что вы думаете"}
         </div>
-        {/* стрелки */}
+
         <div
           className="arrow-button-container"
           style={{
@@ -198,7 +217,7 @@ const MainCard = () => {
             height: "100%",
             width: totalCards * cardFixedWidthPx + (totalCards - 1) * gapPx,
             transform: `translateX(${translateX}px)`,
-            transition: "transform 0.4s ease",
+            transition: dragging ? "none" : "transform 0.4s ease",
             zIndex: 1,
           }}
         >

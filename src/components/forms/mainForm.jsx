@@ -85,19 +85,22 @@ const MainForm = () => {
 
       <div className="main-form-box">
         <form className="form-container" onSubmit={handleOnSubmit}>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Имя"
-          />
-          <input
-            type="text"
-            value={phone}
-            onChange={handlePhoneChange}
-            maxLength={18}
-            placeholder="+7 (___) ___ __ __"
-          />
+          <div className="inputs-row">
+            <input
+              className="input-margin"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Имя"
+            />
+            <input
+              type="text"
+              value={phone}
+              onChange={handlePhoneChange}
+              maxLength={18}
+              placeholder="+7 (___) ___ __ __"
+            />
+          </div>
 
           <label
             className="icon-and-text-box"

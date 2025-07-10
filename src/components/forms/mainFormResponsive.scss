@@ -16,6 +16,7 @@
   }
 
   .text-about-options {
+    width: 300px;
     font-size: 18px !important;
     line-height: 16px !important;
   }
@@ -47,5 +48,112 @@
       width: 32px;
       height: 14px;
     }
+  }
+}
+
+@media (max-width: 640px) {
+  .main-form-container {
+    width: 620px;
+    height: 395px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 64px;
+  }
+
+  .main-form-box:first-child {
+    width: 100%;
+    height: 223px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .text-about-form-container {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .text-about-options {
+    font-size: 18px;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-about-options > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: -1px;
+  }
+
+  .text-about-options > div:last-child {
+    margin-bottom: -5px;
+  }
+
+  .main-form-box:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* Ряд с двумя инпутами */
+  .inputs-row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .inputs-row input {
+    flex: 1 1 0;
+    min-width: 0;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 16px;
+    padding: 8px 12px;
+    margin-bottom: 0;
+  }
+
+  /* Чекбокс с согласием */
+  label.icon-and-text-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  /* Кнопка отправки */
+  .contact-button {
+    margin-top: 12px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 24px;
+    padding-top: 24px;
+    width: 171px;
+  }
+
+  .contact-button img {
+    width: 48px;
+    height: 20px;
   }
 }

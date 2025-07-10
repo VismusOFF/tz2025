@@ -23,6 +23,13 @@
   align-items: flex-start;
   padding: 16px;
 
+  .arrow-button-container {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+
   .info-card-container {
     line-height: 1.2;
   }

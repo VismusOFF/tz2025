@@ -21,6 +21,35 @@
   }
 }
 
+@media (max-width: 640px) {
+  .card {
+    margin-top: 0px;
+    width: 250px;
+    height: 320px;
+
+    .gradient-overlay,
+    .card-text {
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+  }
+
+  .card-text {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    font-size: 14px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+}
+
 .gradient-overlay,
 .card-text {
   position: absolute;
