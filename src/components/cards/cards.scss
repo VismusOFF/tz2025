@@ -11,6 +11,14 @@
   font-family: "Tilda Sans VF", sans-serif;
   transition: background-size 0.3s ease;
   cursor: pointer;
+  box-sizing: border-box;
+}
+
+@media (max-width: 960px) {
+  .card {
+    width: 250px;
+    height: 350px;
+  }
 }
 
 .gradient-overlay,

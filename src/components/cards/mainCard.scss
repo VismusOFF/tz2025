@@ -1,18 +1,31 @@
+@use "./mainCard.responsive.scss" as *;
+
 .card-main-container {
   margin-top: 96px;
   width: 100%;
   height: 546px;
   display: flex;
+  font-family: "GropledBold", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .info-main-container {
-  width: 100%;
+  width: 236px;
   font-family: "GropledBold", sans-serif;
   font-weight: 700;
   font-size: 40px;
   display: flex;
   height: 450px;
   flex-direction: column;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px;
+
+  .info-card-container {
+    line-height: 1.2;
+  }
 }
 
 .cards-list {
@@ -21,19 +34,20 @@
   user-select: none;
   width: 100%;
   display: flex;
+  position: relative;
 }
 
 .cards-wrapper {
   display: flex;
   height: 100%;
   transition: transform 0.4s ease;
-  width: calc(300px * 4);
-}
+  gap: 16px;
 
-.cards-wrapper > div {
-  box-sizing: border-box;
-  flex: 0 0 300px;
-  max-width: 300px;
+  > div {
+    flex: 0 0 300px;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
 }
 
 .arrow-left-margin {
@@ -45,6 +59,7 @@
     fill: #f6f6f6;
     transition: fill 0.3s ease;
   }
+
   .arrow-stroke1,
   .arrow-stroke2 {
     stroke: #2e2d2b;
@@ -57,6 +72,7 @@
   .arrow-bg {
     fill: #1f8b48;
   }
+
   .arrow-stroke1,
   .arrow-stroke2 {
     stroke: #ffffff;

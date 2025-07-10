@@ -13,7 +13,7 @@ body {
 @font-face {
   font-family: "Tilda Sans VF";
   src: url("./fonts/TildaSans-VF_TTF_Web/TildaSans-VF.woff2") format("woff2");
-  font-weight: 100 900; /* вариативный диапазон веса */
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -25,4 +25,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 960px) {
+  .main-page-container {
+    width: 940px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 8px;
+  }
 }

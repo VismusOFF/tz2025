@@ -1,0 +1,51 @@
+@media (max-width: 960px) {
+  .main-form-container {
+    flex-direction: row;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .text-wrapper {
+    width: 40%;
+    font-size: 18px;
+  }
+
+  .text-about-form-container {
+    font-size: 28px !important;
+    line-height: 1.2;
+  }
+
+  .text-about-options {
+    font-size: 18px !important;
+    line-height: 16px !important;
+  }
+
+  .main-form-box {
+    &:first-child {
+      width: 40%;
+      align-items: flex-start;
+    }
+    &:last-child {
+      width: 60%;
+      align-items: stretch;
+    }
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+    padding: 8px 16px;
+    height: 36px;
+  }
+
+  .contact-button {
+    font-size: 16px;
+    img {
+      width: 32px;
+      height: 14px;
+    }
+  }
+}

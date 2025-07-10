@@ -39,57 +39,42 @@ const MainCard = () => {
     },
   ];
 
-  const leftPanelWidthPx = 236;
-  const gapPx = 16;
-  const cardFixedWidthPx = 300;
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [startIndex, setStartIndex] = useState(0);
+  const [dragStartX, setDragStartX] = useState(null);
+  const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
+    const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    if (windowWidth > 1400) {
-      setVisibleCount(4);
-    } else {
-      setVisibleCount(3);
-    }
-  }, [windowWidth]);
+  const isSmallScreen = windowWidth <= 960;
+
+  const leftPanelWidthPx = isSmallScreen ? 232 : 236;
+  const gapPx = isSmallScreen ? 8 : 16;
+  const cardFixedWidthPx = isSmallScreen ? 250 : 300;
+
+  const visibleCount = isSmallScreen ? 2.7 : windowWidth > 1400 ? 4 : 3;
 
   const sliderWidthPx =
     visibleCount * cardFixedWidthPx + (visibleCount - 1) * gapPx;
 
   const totalCards = cardsData.length;
 
-  const [startIndex, setStartIndex] = useState(0);
-
   useEffect(() => {
     const maxStartIndex = Math.max(totalCards - visibleCount, 0);
-    if (startIndex > maxStartIndex) {
-      setStartIndex(maxStartIndex);
-    }
+    if (startIndex > maxStartIndex) setStartIndex(maxStartIndex);
   }, [visibleCount, totalCards, startIndex]);
 
   const maxStartIndex = Math.max(totalCards - visibleCount, 0);
 
-  const handlePrev = () => {
-    setStartIndex((prev) => Math.max(prev - 1, 0));
-  };
-
-  const handleNext = () => {
+  const handlePrev = () => setStartIndex((prev) => Math.max(prev - 1, 0));
+  const handleNext = () =>
     setStartIndex((prev) => Math.min(prev + 1, maxStartIndex));
-  };
 
-  const [dragStartX, setDragStartX] = React.useState(null);
-  const [dragging, setDragging] = React.useState(false);
   const DRAG_THRESHOLD = 50;
 
   const onDragStart = (e) => {
@@ -110,10 +95,8 @@ const MainCard = () => {
         ? e.changedTouches[0].clientX
         : e.clientX;
     const diffX = clientX - dragStartX;
-
     if (diffX > DRAG_THRESHOLD) handlePrev();
     else if (diffX < -DRAG_THRESHOLD) handleNext();
-
     setDragging(false);
     setDragStartX(null);
   };
@@ -127,11 +110,11 @@ const MainCard = () => {
       style={{
         marginTop: 96,
         width: leftPanelWidthPx + sliderWidthPx,
-        height: 546,
+        height: isSmallScreen ? 350 : 546,
         display: "flex",
         fontFamily: "GropledBold, sans-serif",
         fontWeight: 700,
-        fontSize: 40,
+        fontSize: isSmallScreen ? 28 : 40,
       }}
     >
       <div
@@ -140,17 +123,31 @@ const MainCard = () => {
           width: leftPanelWidthPx,
           display: "flex",
           flexDirection: "column",
-          height: 450,
+          height: isSmallScreen ? 350 : 450,
           padding: 16,
           boxSizing: "border-box",
+          position: "relative",
+          zIndex: 10,
+          color: "#000",
+          textShadow: "0 0 4px rgba(255,255,255,0.7)",
         }}
       >
         <div className="info-card-container">
-          Это не совсем то, что вы думаете
+          {isSmallScreen
+            ? "Это — не\nсовсем то, что\n вы думаете"
+                .split("\n")
+                .map((line, i) => <div key={i}>{line}</div>)
+            : "Это — не совсем то, что вы думаете"}
         </div>
+        {/* стрелки */}
         <div
           className="arrow-button-container"
-          style={{ marginTop: "auto", display: "flex", gap: 8 }}
+          style={{
+            marginTop: "auto",
+            display: "flex",
+            gap: 8,
+            marginBottom: "0px",
+          }}
         >
           <span
             className="arrow-left-margin"
@@ -190,6 +187,7 @@ const MainCard = () => {
           userSelect: "none",
           position: "relative",
           cursor: dragging ? "grabbing" : "grab",
+          zIndex: 1,
         }}
       >
         <div
@@ -198,9 +196,10 @@ const MainCard = () => {
             display: "flex",
             gap: gapPx,
             height: "100%",
-            width: totalCards * slideStepPx - gapPx,
+            width: totalCards * cardFixedWidthPx + (totalCards - 1) * gapPx,
             transform: `translateX(${translateX}px)`,
             transition: "transform 0.4s ease",
+            zIndex: 1,
           }}
         >
           {cardsData.map(

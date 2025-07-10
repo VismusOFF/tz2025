@@ -1,4 +1,5 @@
 import "./mainForm.scss";
+import "./mainFormResponsive.scss";
 import ArrowAbout from "../../assets/arrowAbout.svg";
 import SberIcon from "../../assets/sbericon.svg";
 import ButtonArrow from "../../assets/ButtonArrow.svg";

@@ -90,3 +90,18 @@
   bottom: 50px;
   right: 64px;
 }
+
+@media (max-width: 960px) {
+  .video-container {
+    width: 940px;
+    height: 353px;
+  }
+
+  .video-text-main-container {
+    font-size: 18px;
+  }
+
+  .video-text-p {
+    font-size: 32px;
+  }
+}

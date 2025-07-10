@@ -1,0 +1,56 @@
+@media (max-width: 960px) {
+  .contacts-box {
+    width: 55%;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    margin-right: 8px;
+  }
+
+  .map-box {
+    width: 45%;
+    margin-left: 0;
+    height: 100%;
+  }
+
+  .contacts-box-flex {
+    margin-left: 24px;
+    margin-bottom: 24px;
+    padding: 0 16px;
+  }
+
+  .contacts-content {
+    font-size: 28px !important;
+    line-height: 1.2;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .contacts-info {
+    font-size: 18px !important;
+    line-height: 16px !important;
+    margin-bottom: 24px;
+  }
+
+  .contacts-info > div {
+    margin-bottom: 12px;
+    gap: 6px;
+  }
+
+  .phone-box {
+    gap: 12px;
+  }
+
+  .phone-margin {
+    margin-right: 16px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+    padding: 16px 0px 16px 0px;
+
+    img {
+      width: 48px;
+      height: 20px;
+    }
+  }
+}

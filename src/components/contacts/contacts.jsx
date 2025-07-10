@@ -1,4 +1,5 @@
 import "./contacts.scss";
+import "./contacts.responsive.scss";
 import LocationIcon from "../../assets/locationIcon.svg";
 import TimeIcon from "../../assets/timeIcon.svg";
 import PhoneIcon from "../../assets/phoneIcon.svg";
