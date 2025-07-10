@@ -29,9 +29,10 @@ body {
 
 @media (max-width: 960px) {
   .main-page-container {
-    width: 940px;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 100%; /* или max-width: 640px; */
+    max-width: 960px;
+    margin-left: 0px;
+    margin-right: 0px;
     margin-top: 8px;
   }
 }
