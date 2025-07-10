@@ -12,34 +12,43 @@ import Image4 from "../../assets/image4.jpg";
 import Cards from "./cards";
 
 const MainCard = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobile = windowWidth <= 640;
   const cardsData = [
     {
       image: Image1,
       backgroundSize: "180%",
       title: "Немного упругости",
-      description: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+      description: isMobile
+        ? ["Чуть-чуть сияния,", "и ощущение, что вы о себе позаботились"]
+        : "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
     },
     {
       image: Image2,
       backgroundSize: "cover",
       title: "Немного упругости",
-      description: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+      description: isMobile
+        ? ["Чуть-чуть сияния,", "и ощущение, что вы о себе позаботились"]
+        : "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
     },
     {
       image: Image3,
       backgroundSize: "cover",
       title: "Немного упругости",
-      description: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+      description: isMobile
+        ? ["Чуть-чуть сияния,", "и ощущение, что вы о себе позаботились"]
+        : "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
     },
     {
       image: Image4,
       backgroundSize: "cover",
       title: "Немного упругости",
-      description: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+      description: isMobile
+        ? ["Чуть-чуть сияния,", "и ощущение, что вы о себе позаботились"]
+        : "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
     },
   ];
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [startIndex, setStartIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState(null);
   const [dragging, setDragging] = useState(false);
@@ -52,7 +61,6 @@ const MainCard = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const isMobile = windowWidth <= 640;
   const isTablet = windowWidth > 640 && windowWidth <= 960;
   const isDesktop = windowWidth > 960;
 
@@ -62,7 +70,13 @@ const MainCard = () => {
   const gapPx = isSmallScreen ? 8 : 16;
   const cardFixedWidthPx = isSmallScreen ? 250 : 300;
 
-  const visibleCount = isSmallScreen ? 2.7 : windowWidth > 1400 ? 4 : 3;
+  const visibleCount = isMobile
+    ? 2.4
+    : isTablet
+    ? 2.7
+    : windowWidth > 1400
+    ? 4
+    : 3;
 
   const sliderWidthPx =
     visibleCount * cardFixedWidthPx + (visibleCount - 1) * gapPx;
@@ -81,6 +95,7 @@ const MainCard = () => {
     setStartIndex((prev) => Math.min(prev + 1, maxStartIndex));
 
   const DRAG_THRESHOLD = 50;
+  let animationFrameId = null;
 
   const onDragStart = (e) => {
     const clientX = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
@@ -93,20 +108,31 @@ const MainCard = () => {
 
     const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
     const offset = clientX - dragStartX;
-    setDragOffset(offset);
+
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+    animationFrameId = requestAnimationFrame(() => {
+      setDragOffset(offset);
+    });
 
     if (e.type === "touchmove") e.preventDefault();
   };
 
   const onDragEnd = (e) => {
     if (!dragging) return;
+
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
     const clientX =
       e.type === "touchend" && e.changedTouches
         ? e.changedTouches[0].clientX
         : e.clientX;
+
     const diffX = clientX - dragStartX;
+
     if (diffX > DRAG_THRESHOLD) handlePrev();
     else if (diffX < -DRAG_THRESHOLD) handleNext();
+
     setDragging(false);
     setDragStartX(null);
     setDragOffset(0);
@@ -120,7 +146,7 @@ const MainCard = () => {
       className="card-main-container"
       style={{
         marginTop: 96,
-        width: leftPanelWidthPx + sliderWidthPx,
+        width: windowWidth <= 640 ? 620 : leftPanelWidthPx + sliderWidthPx,
         height:
           windowWidth <= 640
             ? 400 // Для мобилок
@@ -238,6 +264,7 @@ const MainCard = () => {
                   title={title}
                   description={description}
                   isMain={index === startIndex}
+                  isMobile={isMobile}
                 />
               </div>
             )

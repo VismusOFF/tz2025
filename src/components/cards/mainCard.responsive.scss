@@ -69,10 +69,9 @@
   }
 
   .cards-wrapper {
+    will-change: transform;
     gap: 8px;
     justify-content: flex-start;
-    transform: none !important;
-    transition: none !important;
     flex-wrap: nowrap;
     width: max-content;
   }

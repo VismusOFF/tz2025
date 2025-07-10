@@ -35,6 +35,35 @@
   }
 
   .card-text {
+    bottom: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    font-size: 14px;
+    color: white;
+  }
+
+  .mobile-title {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "GropledBold", sans-serif;
+    margin: 0 0 8px 0;
+    /* Лёгкая упругость: добавим анимацию */
+    animation: pulse-scale 2s infinite;
+  }
+
+  .card-description-mobile {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Tilda Sans VF", sans-serif;
+    margin: 0;
+  }
+
+  .card-description-mobile .desc-line {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .card-text {
     bottom: 16px;
     left: 16px;
     right: 16px;

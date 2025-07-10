@@ -35,3 +35,13 @@ body {
     margin-top: 8px;
   }
 }
+
+@media (max-width: 640px) {
+  .main-page-container {
+    width: 100%; /* или max-width: 640px; */
+    max-width: 640px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+  }
+}

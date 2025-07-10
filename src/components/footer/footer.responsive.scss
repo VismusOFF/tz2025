@@ -1,0 +1,89 @@
+@media (max-width: 640px) {
+  .footer-container {
+    width: 600px;
+    height: 242px;
+    padding: 0;
+    font-family: "Tilda Sans VF", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #131312;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* Скрываем логотип внизу справа */
+  .footer-container .footer-box:last-child img {
+    display: none;
+  }
+
+  /* Добавляем логотип сверху слева через псевдоэлемент */
+  .footer-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 36px;
+    background: url("../../assets/logoIcon.svg") no-repeat center / contain;
+  }
+
+  .footer-box {
+    display: flex;
+    width: 100%;
+  }
+
+  /* Первый блок — две колонки слева и справа */
+  .footer-box:first-child {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    gap: 64px;
+    margin-top: 48px; /* отступ под логотип */
+  }
+
+  /* Левая колонка: объединяем первые два div */
+  .footer-box:first-child > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 162px; /* 130 + отступы */
+  }
+
+  /* Правая часть — объединяем вторую и третью колонки в один flex */
+  .footer-box:first-child > div:nth-child(2),
+  .footer-box:first-child > div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Чтобы "Для своих" была справа от "Архитектура" и "Отзывы" */
+  .footer-box:first-child {
+    justify-content: flex-start;
+  }
+
+  /* Размещаем вторую и третью колонки в ряд с gap */
+  .footer-box:first-child > div:nth-child(2) {
+    margin-right: 64px;
+  }
+
+  /* Линия 2px #131312 между блоками */
+  .footer-box:first-child {
+    border-bottom: 2px solid #131312;
+    padding-bottom: 32px;
+  }
+
+  /* Нижний блок с текстом */
+  .footer-box:last-child {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+
+  .footer-box:last-child > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
