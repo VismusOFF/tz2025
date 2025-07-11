@@ -1,4 +1,4 @@
-@media (max-width: 960px) {
+@media (max-width: 1300px) {
   .contacts-main-container {
     margin-top: 64px;
   }
@@ -67,7 +67,8 @@
   }
 
   .contacts-box {
-    width: 620px;
+    width: 100%;
+    max-width: 620px;
     height: 311px;
     margin-bottom: 8px; // отступ между контактами и картой
   }
@@ -92,7 +93,8 @@
   }
 
   .map-box {
-    width: 620px;
+    width: 100%;
+    max-width: 620px;
     height: 250px;
   }
 

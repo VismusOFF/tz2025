@@ -93,7 +93,8 @@
 
 @media (max-width: 960px) {
   .video-container {
-    width: 940px;
+    width: 100%;
+    max-width: 940px;
     height: 353px;
   }
 

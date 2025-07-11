@@ -7,7 +7,8 @@
 
 @media (max-width: 640px) {
   .footer-container {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 242px;
     padding: 0;
     font-family: "Tilda Sans VF", sans-serif;

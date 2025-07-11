@@ -1,6 +1,24 @@
+@media (max-width: 1300px) {
+  .logo-icon {
+    width: 130px;
+    height: 36px;
+    margin-left: 24px;
+  }
+
+  .navbar-container button {
+    font-size: 16px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+.menu-icon {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .navbar-container {
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     height: 68px;
     background: transparent;
     display: flex;

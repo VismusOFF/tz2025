@@ -27,9 +27,17 @@ body {
   justify-content: center;
 }
 
+@media (max-width: 1300px) {
+  .main-page-container {
+    margin-left: 64px;
+    margin-right: 64px;
+    margin-top: 8px;
+  }
+}
+
 @media (max-width: 960px) {
   .main-page-container {
-    width: 100%; /* или max-width: 640px; */
+    width: 100%;
     max-width: 960px;
     margin-left: 0px;
     margin-right: 0px;

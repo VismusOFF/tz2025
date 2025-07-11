@@ -146,7 +146,6 @@ const MainCard = () => {
       className="card-main-container"
       style={{
         marginTop: 96,
-        width: windowWidth <= 640 ? 620 : leftPanelWidthPx + sliderWidthPx,
         height:
           windowWidth <= 640
             ? 400 // Для мобилок

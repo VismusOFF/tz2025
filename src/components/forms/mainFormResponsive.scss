@@ -1,4 +1,4 @@
-@media (max-width: 960px) {
+@media (max-width: 1300px) {
   .main-form-container {
     flex-direction: row;
     padding-left: 32px;
@@ -53,7 +53,8 @@
 
 @media (max-width: 640px) {
   .main-form-container {
-    width: 620px;
+    width: 100%;
+    max-width: 620px;
     height: 395px;
     padding: 24px;
     display: flex;
